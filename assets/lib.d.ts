@@ -1,0 +1,7 @@
+declare module "react-admin"
+declare module "ra-data-json-server"
+declare module "ra-language-russian"
+declare module "redux-form-input-masks"
+declare module "d3-time-format"
+declare module "ra-core"
+declare module "redux-form"
