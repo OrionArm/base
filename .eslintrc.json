@@ -40,7 +40,13 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["build-utils/**"],
+        "devDependencies": [
+          "build-utils/**",
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "__tests__/**",
+          "__mocks__/**"
+        ],
         "optionalDependencies": false,
         "peerDependencies": false
       }
