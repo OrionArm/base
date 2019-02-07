@@ -16,27 +16,44 @@
       }
     }
   },
-
-  "env": { "browser": true, "jest/globals": true },
-  "plugins": ["react", "prettier", "@typescript-eslint", "jest"],
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "plugins": ["react", "prettier", "@typescript-eslint", "jest", "react-hooks"],
   "extends": [
     "airbnb",
     "plugin:prettier/recommended",
     "prettier/react",
     "prettier",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
+    "plugin:react/recommended"
   ],
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
     "react/jsx-filename-extension": [
       1,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     ],
-
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["build-utils/**"],
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "react/prop-types": 0,
     "no-unexpected-multiline": "error",
-    "prettier/prettier": "error",
-    "@typescript-eslint/rule-name": "error",
-    "interface-over-type-literal": false,
-    "linebreak-style": 0
+    "prettier/prettier": [
+      "error",
+      {
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    ],
+    "interface-over-type-literal": false
   },
   "overrides": [
     {

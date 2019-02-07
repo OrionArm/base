@@ -10,22 +10,17 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "removeComments": true,
     "allowJs": true,
     "outDir": "build",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": "./src",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["es6", "es7", "es2017", "es2018", "dom"]
+    "experimentalDecorators": true
   },
   "exclude": [
+    "node_modules",
     "dist",
     "build"
-    //    "node_modules"
-    //    "__tests__", // it affects tslint :(
-    //    "src/__tests__",
-    //    "__mocks__"
   ]
 }

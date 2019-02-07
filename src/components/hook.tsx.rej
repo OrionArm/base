@@ -1,0 +1,22 @@
+diff a/src/components/hook.tsx b/src/components/hook.tsx	(rejected hunks)
+@@ -4 +4 @@ type Props = {
+-    initial: number
++  initial: number
+@@ -8,9 +8,8 @@ export const Counter: FunctionComponent<Props> = ({ initial = 0 }) => {
+-    const [clicks, setClicks] =
+-        useState<Props>(initial)
+-    return (
+-        <>
+-            <p>Clicks: {clicks}</p>
+-            <button onClick={() => setClicks(clicks + 1)}>+</button>
+-            <button onClick={() => setClicks(clicks - 1)}>+</button>
+-        </>
+-    )
++  const [clicks, setClicks] = useState<Props>(initial)
++  return (
++    <>
++      <p>Clicks: {clicks}</p>
++      <button onClick={() => setClicks(clicks + 1)}>+</button>
++      <button onClick={() => setClicks(clicks - 1)}>+</button>
++    </>
++  )

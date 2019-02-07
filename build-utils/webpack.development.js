@@ -7,8 +7,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 // const ExtractTextPlugin       = require("extract-text-webpack-plugin")
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin-alt")
-const regexps = require("./regexp-collection")
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter")
+const regexps = require("./regexp-collection")
+
 process.env.BABEL_ENV = "development"
 process.env.NODE_ENV = "development"
 require("./env")
@@ -109,6 +110,20 @@ const styleLoaders = [
 ]
 const rules = [
   { parser: { requireEnsure: false } },
+  {
+    test: regexps.jsJsxTsTsx,
+    enforce: "pre",
+    use: [
+      {
+        options: {
+          formatter: require.resolve("react-dev-utils/eslintFormatter"),
+          eslintPath: require.resolve("eslint"),
+        },
+        loader: require.resolve("eslint-loader"),
+      },
+    ],
+    include: paths.appSrc,
+  },
   {
     oneOf: [
       // Process application JS with Babel.
