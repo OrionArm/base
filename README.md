@@ -1,18 +1,16 @@
-### Start project
+# Start project
 
+```
 yarn
 cp .env.example .env
 yarn start
-
-# Users
+```
 
 # Semantic Commit Messages
 
 Format: `<type>(<scope>): <subject>`
 
 `<scope>` is optional
-
-## Semantic Commit Messages
 
 ```
 feat: add hat wobble
@@ -30,3 +28,11 @@ feat: add hat wobble
 - `refactor`: (refactoring production code, eg. renaming a variable)
 - `test`: (adding missing tests, refactoring tests; no production code change)
 - `chore`: (updating grunt tasks etc; no production code change)
+
+# IDE:
+
+I strongly recomend use VSCode for correct linters work.
+
+If your dev-server doesn’t pick up changes when editing with VSCode, type this command:
+
+`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
