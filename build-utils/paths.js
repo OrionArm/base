@@ -80,6 +80,7 @@ module.exports = {
   appNodeModules: resolveApp("node_modules"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
   publicPath: getServedPath(resolveApp("package.json")),
+  devServer: resolveApp("server/dev-server.js"),
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions

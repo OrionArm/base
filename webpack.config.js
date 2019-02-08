@@ -1,6 +1,8 @@
 // const autoprefixer           = require("autoprefixer")
 const webpackMerge = require("webpack-merge")
+const NodemonPlugin = require("nodemon-webpack-plugin") // Ding
 const presetConfig = require("./build-utils/loadPresets")
+
 const paths = require("./build-utils/paths")
 
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
@@ -51,6 +53,12 @@ const config = mode => ({
     fs: "empty",
     net: "empty",
   },
+  plugins: [
+    new NodemonPlugin({
+      watch: paths.devServer,
+      script: paths.devServer,
+    }),
+  ],
 })
 
 module.exports = (

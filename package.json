@@ -10,9 +10,8 @@
     "react-dom": "^16.8.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --colors --progress --env.mode development --watch-poll",
-    "build:dev": "npm run clean && webpack --progress --colors --env.mode development",
-    "build:prod": "npm run clean && webpack --progress --colors --env.mode production",
+    "start": "webpack --watch --progress --mode=development",
+    "build": "npm run clean && webpack --progress --colors --mode=production",
     "analyze:prod": "npm run clean && webpack --progress --colors --env.mode production --env.presets analyze",
     "test": "jest",
     "test:cover": "npm run test -- -env=jsdom --watchAll --coverage && exit 0",
@@ -128,9 +127,6 @@
     "webpack": "^4.29.2",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-middleware": "^3.5.2",
-    "webpack-dev-server": "^3.1.14",
-    "webpack-hot-middleware": "^2.24.3",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.2.1",
     "workbox-webpack-plugin": "^3.6.3"
