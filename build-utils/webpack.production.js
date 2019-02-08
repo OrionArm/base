@@ -236,6 +236,11 @@ const rules = [
           cacheCompression: false,
         },
       },
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre",
+      },
       // Process any JS outside of the app with Babel.
       // Unlike the application JS, we only compile the standard ES features.
       {

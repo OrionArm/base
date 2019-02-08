@@ -1,12 +1,13 @@
 {
   "presets": [
+    "@babel/preset-react",
+    "@babel/typescript",
     [
-      "react-app",
+      "@babel/preset-env",
       {
-        "flow": false,
-        "typescript": true
+        "useBuiltIns": "entry"
       }
-    ],
+    ]
   ],
   "plugins": []
 }

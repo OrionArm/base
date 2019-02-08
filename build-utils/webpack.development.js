@@ -133,10 +133,6 @@ const rules = [
         include: paths.appSrc,
         loader: require.resolve("babel-loader"),
         options: {
-          customize: require.resolve(
-            "babel-preset-react-app/webpack-overrides"
-          ),
-
           plugins: [
             [
               require.resolve("babel-plugin-named-asset-import"),
@@ -160,6 +156,11 @@ const rules = [
       // Process any JS outside of the app with Babel.
       // Unlike the application JS, we only compile the standard ES features.
       {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre",
+      },
+      {
         test: regexps.js,
         exclude: /@babel(?:\/|\\{1,2})runtime/,
         loader: require.resolve("babel-loader"),
@@ -167,12 +168,7 @@ const rules = [
           babelrc: false,
           configFile: false,
           compact: false,
-          presets: [
-            [
-              require.resolve("babel-preset-react-app/dependencies"),
-              { helpers: true },
-            ],
-          ],
+          presets: [[{ helpers: true }]],
           cacheDirectory: true,
           // Don't waste time on Gzipping the cache
           cacheCompression: false,

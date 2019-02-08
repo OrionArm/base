@@ -55,7 +55,7 @@ const config = mode => ({
 
 module.exports = (
   { mode, presets } = {
-    mode: "production",
+    mode: "development",
     presets: [],
   }
 ) => {

@@ -25,7 +25,8 @@
     "prettier": "pretty-quick --staged",
     "format": "prettier-eslint --write \"src/**/*.{ts,tsx}\"",
     "kill:3000": "kill $(lsof -t -i:3000)",
-    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
+    "demon": "nodemon --watch build-utils --watch server server/main.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +39,10 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "@types/dotenv": "^6.1.0",
     "@types/enzyme": "^3.1.16",
     "@types/enzyme-adapter-react-16": "^1.0.3",
@@ -56,7 +61,6 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-named-asset-import": "^0.3.0",
-    "babel-preset-react-app": "^7.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.8",
@@ -77,6 +81,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.0.1",
+    "express": "^4.16.4",
+    "express-static-gzip": "^1.1.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^3.0.1",
     "fork-ts-checker-webpack-plugin-alt": "^0.4.14",
@@ -88,6 +94,8 @@
     "lint-staged": "^8.1.3",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "nodemon-webpack-plugin": "^4.0.7",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss": "^7.0.14",
     "postcss-browser-reporter": "^0.5.0",
@@ -105,6 +113,7 @@
     "pretty-quick": "^1.10.0",
     "react-dev-utils": "^7.0.1",
     "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "stylefmt": "^6.0.3",
     "stylelint-scss": "^3.5.3",
@@ -119,7 +128,9 @@
     "webpack": "^4.29.2",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^3.5.2",
     "webpack-dev-server": "^3.1.14",
+    "webpack-hot-middleware": "^2.24.3",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.2.1",
     "workbox-webpack-plugin": "^3.6.3"

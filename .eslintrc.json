@@ -60,7 +60,9 @@
           "**/*.test.tsx",
           "__tests__/**",
           "__mocks__/**",
-          "webpack.config.js"
+          "webpack.config.js",
+          "server/express.js",
+          "server/main.js"
         ],
         "optionalDependencies": false,
         "peerDependencies": false
