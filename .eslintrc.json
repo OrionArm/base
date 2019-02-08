@@ -20,6 +20,20 @@
     "browser": true,
     "jest/globals": true
   },
+  "overrides": [
+    {
+      "files": ["**/*.d.ts"],
+      "rules": {
+        "spaced-comment": "off"
+      }
+    },
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    }
+  ],
   "plugins": ["react", "prettier", "@typescript-eslint", "jest", "react-hooks"],
   "extends": [
     "airbnb",
@@ -59,20 +73,7 @@
         "htmlWhitespaceSensitivity": "ignore"
       }
     ],
-    "interface-over-type-literal": false
-  },
-  "overrides": [
-    {
-      "files": ["**/*.d.ts"],
-      "rules": {
-        "spaced-comment": "off"
-      }
-    },
-    {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "rules": {
-        "no-unused-vars": "off"
-      }
-    }
-  ]
+    "interface-over-type-literal": false,
+    "global-require": 0
+  }
 }
