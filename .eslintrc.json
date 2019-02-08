@@ -59,7 +59,8 @@
           "**/*.test.ts",
           "**/*.test.tsx",
           "__tests__/**",
-          "__mocks__/**"
+          "__mocks__/**",
+          "webpack.config.js"
         ],
         "optionalDependencies": false,
         "peerDependencies": false
@@ -74,6 +75,7 @@
       }
     ],
     "interface-over-type-literal": false,
-    "global-require": 0
+    "global-require": 0,
+    "import/no-dynamic-require": false
   }
 }
