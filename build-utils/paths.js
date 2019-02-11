@@ -1,5 +1,3 @@
-"use strict"
-
 const path = require("path")
 const fs = require("fs")
 const url = require("url")
@@ -17,9 +15,8 @@ function ensureSlash(inputPath, needsSlash) {
     return inputPath.substr(0, inputPath.length - 1)
   } else if (!hasSlash && needsSlash) {
     return `${inputPath}/`
-  } else {
-    return inputPath
   }
+  return inputPath
 }
 
 const getPublicUrl = appPackageJson =>
@@ -54,8 +51,8 @@ const moduleFileExtensions = [
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(extension =>
-    fs.existsSync(resolveFn(`${filePath}.${extension}`))
+  const extension = moduleFileExtensions.find(exten =>
+    fs.existsSync(resolveFn(`${filePath}.${exten}`))
   )
 
   if (extension) {
@@ -74,8 +71,8 @@ module.exports = {
   appHtml: resolveApp("src/index.html"),
   appIndexJs: resolveModule(resolveApp, "src/index"),
   appPackageJson: resolveApp("package.json"),
-  appSrc: resolveApp("src"), //!
-  appAssets: resolveApp("./assets"), //!
+  appSrc: resolveApp("src"),
+  appAssets: resolveApp("./assets"),
   appTsConfig: resolveApp("tsconfig.json"),
   yarnLockFile: resolveApp("yarn.lock"),
   testsSetup: resolveModule(resolveApp, "src/setupTests"),
@@ -83,6 +80,7 @@ module.exports = {
   appNodeModules: resolveApp("node_modules"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
   publicPath: getServedPath(resolveApp("package.json")),
+  devServer: resolveApp("server/dev-server.js"),
 }
 
 module.exports.moduleFileExtensions = moduleFileExtensions

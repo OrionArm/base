@@ -1,6 +1,7 @@
 // const autoprefixer           = require("autoprefixer")
 const webpackMerge = require("webpack-merge")
 const presetConfig = require("./build-utils/loadPresets")
+
 const paths = require("./build-utils/paths")
 
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env)
@@ -55,7 +56,7 @@ const config = mode => ({
 
 module.exports = (
   { mode, presets } = {
-    mode: "production",
+    mode: "development",
     presets: [],
   }
 ) => {

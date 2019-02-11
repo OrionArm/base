@@ -1,5 +1,4 @@
 const fs = require("fs")
-const paths = require("./paths")
 const resolve = require("resolve")
 const Webpack = require("webpack")
 const Dotenv = require("dotenv-webpack")
@@ -8,6 +7,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin-alt")
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter")
+
+const paths = require("./paths")
+
 const regexps = require("./regexp-collection")
 
 process.env.BABEL_ENV = "development"
@@ -106,7 +108,8 @@ const styleLoaders = [
    test: /\.scss$/,
    include: [paths.appAssets],
    use: styleUse
-   },*/
+   },
+   */
 ]
 const rules = [
   { parser: { requireEnsure: false } },
@@ -133,10 +136,6 @@ const rules = [
         include: paths.appSrc,
         loader: require.resolve("babel-loader"),
         options: {
-          customize: require.resolve(
-            "babel-preset-react-app/webpack-overrides"
-          ),
-
           plugins: [
             [
               require.resolve("babel-plugin-named-asset-import"),
@@ -160,6 +159,11 @@ const rules = [
       // Process any JS outside of the app with Babel.
       // Unlike the application JS, we only compile the standard ES features.
       {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre",
+      },
+      {
         test: regexps.js,
         exclude: /@babel(?:\/|\\{1,2})runtime/,
         loader: require.resolve("babel-loader"),
@@ -167,12 +171,7 @@ const rules = [
           babelrc: false,
           configFile: false,
           compact: false,
-          presets: [
-            [
-              require.resolve("babel-preset-react-app/dependencies"),
-              { helpers: true },
-            ],
-          ],
+          presets: [[{ helpers: true }]],
           cacheDirectory: true,
           // Don't waste time on Gzipping the cache
           cacheCompression: false,
@@ -239,6 +238,18 @@ module.exports = () => ({
     stats: {
       children: false,
     },
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    // proxy: [
+    //   // allows redirect of requests to webpack-dev-server to another destination
+    //   {
+    //     context: ["/api", "/auth"], // can have multiple
+    //     target: "http://localhost:8080", // server and port to redirect to
+    //     // secure: false, // don't use https
+    //   },
+    // ],
   },
   devtool: "cheap-module-eval-source-map",
   module: {
