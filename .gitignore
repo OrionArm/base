@@ -33,4 +33,4 @@ yarn-error.log*
 !.vscode/extensions.json
 
 ### Webstorm
-.idea/
+.idea/*
