@@ -1,5 +1,5 @@
 {
-  "name": "webpack-e",
+  "name": "webpack-base",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
